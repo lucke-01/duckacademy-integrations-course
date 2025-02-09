@@ -71,10 +71,12 @@
 							<generatorName>spring</generatorName>
 							<apiPackage>com.swagger.client.codegen.rest</apiPackage>
 							<modelPackage>com.swagger.client.codegen.rest.model</modelPackage>
+							<modelNameSuffix>DTO</modelNameSuffix>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
 								<useJakartaEe>true</useJakartaEe>
 								<openApiNullable>false</openApiNullable>
+
 							</configOptions>
 							<typeMappings>
 								<typeMapping>OffsetDateTime=java.time.Instant</typeMapping>

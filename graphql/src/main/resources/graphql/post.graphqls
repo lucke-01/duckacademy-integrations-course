@@ -1,0 +1,32 @@
+type Post {
+    id: ID!
+    title: String!
+    text: String!
+    category: String
+    author: Author!
+    first_author: Author!
+}
+
+type Author {
+    id: ID!
+    name: String!
+    thumbnail: String
+    posts: [Post]!
+}
+input AuthorInput {
+    name: String!
+    thumbnail: String
+}
+
+# The Root Query for the application
+type Query {
+    posts: [Post]!
+    recentPosts(count: Int, offset: Int): [Post]!
+    postById(id: String): Post!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    createPost(title: String!, text: String!, category: String, authorId: String!) : Post!
+    createAuthor(author: AuthorInput): Author!
+}

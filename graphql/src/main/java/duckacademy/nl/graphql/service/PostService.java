@@ -1,18 +1,22 @@
-package duckacademy.nl.graphql.dao;
+package duckacademy.nl.graphql.service;
 
 import duckacademy.nl.graphql.exception.NotFoundException;
+import duckacademy.nl.graphql.model.Author;
 import duckacademy.nl.graphql.model.Post;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PostDao {
+@Service
+public class PostService {
 
     private final List<Post> posts;
 
-    public PostDao(List<Post> posts) {
+    public PostService(List<Post> posts) {
         this.posts = posts;
     }
+
     public Post findById(String id) {
         return posts.stream()
                 .filter(p->p.getId().equals(id))
@@ -29,9 +33,9 @@ public class PostDao {
         return posts;
     }
 
-    public List<Post> getAuthorPosts(String author) {
+    public List<Post> getAuthorPosts(String authorId) {
         return posts.stream()
-                .filter(post -> author.equals(post.getAuthorId()))
+                .filter(post -> authorId.equals(post.getAuthor().getId()))
                 .collect(Collectors.toList());
     }
 

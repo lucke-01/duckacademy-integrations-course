@@ -4,7 +4,6 @@ type Post {
     text: String!
     category: String
     author: Author!
-    first_author: Author!
 }
 
 type Author {
@@ -23,10 +22,12 @@ type Query {
     posts: [Post]!
     recentPosts(count: Int, offset: Int): [Post]!
     postById(id: String): Post!
+    authorById(authorId: String): Author!
+    authors: [Author]
 }
 
 # The Root Mutation for the application
 type Mutation {
-    createPost(title: String!, text: String!, category: String, authorId: String!) : Post!
+    createPost(title: String!, text: String!, category: String) : Post!
     createAuthor(author: AuthorInput): Author!
 }

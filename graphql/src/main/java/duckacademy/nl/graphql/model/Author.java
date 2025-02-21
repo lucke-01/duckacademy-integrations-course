@@ -1,6 +1,5 @@
 package duckacademy.nl.graphql.model;
 public class Author {
-
     private String id;
     private String name;
     private String thumbnail;

@@ -20,6 +20,12 @@ query showing_recent_posts {
 
 ## Spring boot + GraphQL
 
+### URLS
+
+Interface to interact with graphql
+```
+http://localhost:8080/graphiql
+```
 
 ## Queries
 

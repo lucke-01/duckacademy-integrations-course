@@ -5,7 +5,7 @@ public class Post {
     private String title;
     private String text;
     private String category;
-    private String authorId;
+    private Author author;
 
     public String getId() {
         return id;
@@ -31,19 +31,19 @@ public class Post {
         this.category = category;
     }
 
-    public String getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(String authorId) {
-        this.authorId = authorId;
-    }
-
     public String getText() {
         return text;
     }
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

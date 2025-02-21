@@ -1,19 +1,24 @@
-package duckacademy.nl.graphql.dao;
+package duckacademy.nl.graphql.service;
 
 import duckacademy.nl.graphql.controller.input.AuthorInput;
 import duckacademy.nl.graphql.model.Author;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-public class AuthorDao {
+@Service
+public class AuthorService {
     private final List<Author> authors;
 
-    public AuthorDao(List<Author> authors) {
+    public AuthorService(List<Author> authors) {
         this.authors = authors;
     }
+    public List<Author> getAll() {
+        return this.authors;
+    }
 
-    public Author getAuthor(String id) {
+    public Author findById(String id) {
         return authors.stream()
                 .filter(author -> id.equals(author.getId()))
                 .findFirst()

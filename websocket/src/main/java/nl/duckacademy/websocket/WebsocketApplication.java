@@ -1,11 +1,11 @@
-package duckacademy.nl.websocket;
+package nl.duckacademy.websocket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
+@EnableScheduling()
 public class WebsocketApplication {
 
 	public static void main(String[] args) {

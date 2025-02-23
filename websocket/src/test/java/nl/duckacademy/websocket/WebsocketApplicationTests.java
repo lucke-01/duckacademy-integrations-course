@@ -1,4 +1,4 @@
-package duckacademy.nl.websocket;
+package nl.duckacademy.websocket;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -38,4 +38,5 @@ public class AuthorController {
     public List<Post> getAuthorPost(Author author) {
         return postService.getAuthorPosts(author.getId());
     }
+
 }

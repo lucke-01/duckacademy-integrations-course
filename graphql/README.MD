@@ -41,4 +41,9 @@ http://localhost:8080/graphiql
 
 Guide: [Error handling guide](https://www.baeldung.com/spring-graphql-error-handling)
 
+## GUIDES
+
+### Custom scalar
+
+[Custom scalar](https://www.danvega.dev/blog/graphql-custom-scalars)
 

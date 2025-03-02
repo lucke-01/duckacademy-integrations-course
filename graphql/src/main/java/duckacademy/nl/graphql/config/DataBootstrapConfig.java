@@ -28,7 +28,7 @@ public class DataBootstrapConfig {
         for (int postId = 0; postId < 10; ++postId) {
             for (Author author : authorsList) {
                 Post post = new Post();
-                post.setId("Post" + author.getId() + postId);
+                post.setId(String.valueOf(postId));
                 post.setTitle("Post " + author.getId() + ":" + postId);
                 post.setCategory("Post category");
                 post.setText("Post " + postId + " + by author " + author.getName());

@@ -15,13 +15,14 @@ public class DataBootstrapConfig {
         List<Author> authors = new ArrayList<>();
         for (int authorId = 0; authorId < 10; ++authorId) {
             Author author = new Author();
-            author.setId("Author" + authorId);
+            author.setId(String.valueOf(authorId));
             author.setName("Author " + authorId);
             author.setThumbnail("http://example.com/authors/" + authorId);
             authors.add(author);
         }
         return authors;
     }
+
     @Bean
     public List<Post> postsData(List<Author> authorsList) {
         List<Post> posts = new ArrayList<>();

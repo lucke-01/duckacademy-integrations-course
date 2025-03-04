@@ -14,6 +14,7 @@ public class AuthorService {
     public AuthorService(List<Author> authors) {
         this.authors = authors;
     }
+
     public List<Author> getAll() {
         return this.authors;
     }
@@ -24,6 +25,7 @@ public class AuthorService {
                 .findFirst()
                 .orElseThrow(RuntimeException::new);
     }
+
     public Author createAuthor(AuthorInput authorInput) {
         Author author = new Author();
         author.setId(UUID.randomUUID().toString());

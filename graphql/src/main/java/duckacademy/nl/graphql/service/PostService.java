@@ -1,7 +1,6 @@
 package duckacademy.nl.graphql.service;
 
 import duckacademy.nl.graphql.exception.NotFoundException;
-import duckacademy.nl.graphql.model.Author;
 import duckacademy.nl.graphql.model.Post;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +18,18 @@ public class PostService {
 
     public Post findById(String id) {
         return posts.stream()
-                .filter(p->p.getId().equals(id))
+                .filter(p -> p.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("Not found", "not found"));
     }
+
     public List<Post> getRecentPosts(int count, int offset) {
         return posts.stream()
                 .skip(offset)
                 .limit(count)
                 .collect(Collectors.toList());
     }
+
     public List<Post> getPosts() {
         return posts;
     }

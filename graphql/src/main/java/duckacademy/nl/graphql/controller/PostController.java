@@ -2,10 +2,10 @@ package duckacademy.nl.graphql.controller;
 
 
 import duckacademy.nl.graphql.controller.input.AuthorInput;
-import duckacademy.nl.graphql.service.AuthorService;
-import duckacademy.nl.graphql.service.PostService;
 import duckacademy.nl.graphql.model.Author;
 import duckacademy.nl.graphql.model.Post;
+import duckacademy.nl.graphql.service.AuthorService;
+import duckacademy.nl.graphql.service.PostService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -25,14 +25,17 @@ public class PostController {
         this.postService = postService;
         this.authorService = authorService;
     }
+
     @QueryMapping
     public Post postById(@Argument String id) {
         return postService.findById(id);
     }
+
     @QueryMapping
     public List<Post> recentPosts(@Argument int count, @Argument int offset) {
         return postService.getRecentPosts(count, offset);
     }
+
     @QueryMapping
     public List<Post> posts() {
         return postService.getPosts();
@@ -52,10 +55,12 @@ public class PostController {
 
         return post;
     }
+
     @MutationMapping
     public Author createAuthor(@Argument AuthorInput author) {
         return authorService.createAuthor(author);
     }
+
     //IMPORTANT SCHEMA mapping affect to a property of a Type no to all the type as @query mapping
     //this schema mapping is also implemented by default
     @SchemaMapping(typeName = "Post", field = "author")

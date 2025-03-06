@@ -1,33 +1,39 @@
+scalar LocalDateTime
+directive @uppercase on FIELD_DEFINITION
+enum Category {
+    PUBLIC
+    PRIVATE
+}
+type Author {
+    id: ID!
+    name: String @uppercase
+    birthDate: LocalDateTime
+    posts: [Post]
+}
 type Post {
     id: ID!
     title: String!
     text: String!
-    category: String
-    author: Author!
-}
-
-type Author {
-    id: ID!
-    name: String!
-    thumbnail: String
-    posts: [Post]!
+    category: Category
+    author: Author
 }
 input AuthorInput {
-    name: String!
-    thumbnail: String
+    id: ID!
+    name: String
 }
-
-# The Root Query for the application
+# query root
 type Query {
-    posts: [Post]!
-    recentPosts(count: Int, offset: Int): [Post]!
-    postById(id: String): Post!
-    authorById(authorId: String): Author!
+    posts: [Post!]!
+    recentPosts(count: Int!, offset: Int!): [Post!]!
+    findPostById(id: ID!): Post
     authors: [Author]
 }
-
-# The Root Mutation for the application
+# mutation root
 type Mutation {
-    createPost(title: String!, text: String!, category: String) : Post!
-    createAuthor(author: AuthorInput): Author!
+    createPost(id: String!, title: String, text: String, category: Category): Post!
+    createAuthor(author: AuthorInput, birthDate: LocalDateTime): Author!
+}
+# subscription root
+type Subscription {
+    fetchPosts: Post
 }

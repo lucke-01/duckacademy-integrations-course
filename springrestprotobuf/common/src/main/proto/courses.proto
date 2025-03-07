@@ -23,3 +23,7 @@ message Student {
     LANDLINE = 1;
   }
 }
+message CourseInput {
+  int32 id = 1;
+  string course_name = 2;
+}

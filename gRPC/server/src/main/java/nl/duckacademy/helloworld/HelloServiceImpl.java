@@ -1,4 +1,4 @@
-package nl.duckacademy.services;
+package nl.duckacademy.helloworld;
 
 
 

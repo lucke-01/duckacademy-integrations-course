@@ -2,7 +2,10 @@ package nl.duckacademy;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import nl.duckacademy.services.HelloServiceImpl;
+import nl.duckacademy.chatstream.ChatServiceImpl;
+import nl.duckacademy.helloworld.HelloServiceImpl;
+import nl.duckacademy.usernotification.NotificationServiceImpl;
+import nl.duckacademy.userstream.UserStreamServiceImpl;
 
 import java.io.IOException;
 
@@ -14,10 +17,14 @@ public class Main {
                 .forPort(8080)
                 //grcp services
                 .addService(new HelloServiceImpl())
+                .addService(new ChatServiceImpl())
+                .addService(new NotificationServiceImpl())
+                .addService(new UserStreamServiceImpl())
                 .build();
 
         //server start
         server.start();
+        System.out.println("Server started");
         server.awaitTermination();
     }
 }

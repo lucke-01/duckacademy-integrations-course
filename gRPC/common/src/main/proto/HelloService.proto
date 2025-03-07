@@ -2,15 +2,47 @@ syntax = "proto3";
 option java_multiple_files = true;
 package nl.duckacademy.gRPC_server.grpc;
 
+//HELLO WORLD
 message HelloRequest {
-    string firstName = 1;
-    string lastName = 2;
+  string firstName = 1;
+  string lastName = 2;
 }
 
 message HelloResponse {
-    string greeting = 1;
+  string greeting = 1;
 }
 
 service HelloService {
-    rpc hello(HelloRequest) returns (HelloResponse);
+  rpc hello(HelloRequest) returns (HelloResponse);
+}
+//USER REGISTRATION
+
+//CHAT STREAM
+service ChatService {
+  rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+}
+message ChatMessage {
+  string user = 1;
+  string message = 2;
+}
+//USER NOTIFICATION
+service NotificationService {
+  rpc GetNotification(UserNotificationId) returns (stream Notification);
+}
+message UserNotificationId {
+  int64 UserId = 1;
+}
+message Notification {
+  string id = 1;
+  string message = 2;
+}
+//USER STREAMS
+service UserStream {
+  rpc UserStream(stream UserData) returns (StreamResult);
+}
+message UserData {
+  string data = 1;
+}
+message StreamResult {
+  string result = 1;
 }

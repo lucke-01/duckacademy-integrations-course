@@ -1,4 +1,4 @@
-package nl.duckacademy.chatstream;
+package nl.duckacademy.stream.chatstream;
 
 import io.grpc.stub.StreamObserver;
 import nl.duckacademy.gRPC_server.grpc.ChatMessage;

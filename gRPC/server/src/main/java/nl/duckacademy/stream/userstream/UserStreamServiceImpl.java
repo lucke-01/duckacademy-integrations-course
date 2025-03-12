@@ -1,4 +1,4 @@
-package nl.duckacademy.userstream;
+package nl.duckacademy.stream.userstream;
 
 import io.grpc.stub.StreamObserver;
 import nl.duckacademy.gRPC_server.grpc.StreamResult;

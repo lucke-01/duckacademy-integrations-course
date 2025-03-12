@@ -1,4 +1,4 @@
-package nl.duckacademy.usernotification;
+package nl.duckacademy.stream.usernotification;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;

@@ -1,4 +1,4 @@
-package nl.duckacademy.userstream;
+package nl.duckacademy.stream.userstream;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;

@@ -1,0 +1,39 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package nl.duckacademy.gRPC_server.grpc;
+
+//USER
+enum Category {
+  UNDEFINED = 0;
+  STUDENT = 1;
+  EMPLOYEE = 2;
+}
+message UserRequest {
+  uint64 id = 1;
+  string name = 2;
+  optional string lastname = 3;
+  double salary = 4;
+  bool active = 5;
+  Category category = 6;
+  repeated Course courses = 7;
+}
+message Course {
+  uint64 id = 1;
+  string name = 2;
+  double price = 3;
+  repeated string labels = 4;
+}
+//OPERATION STATUS
+enum Status {
+  STATUS_UNDEFINED = 0;
+  OK = 1;
+  KO = 2;
+}
+message OperationStatusResponse {
+  Status status = 1;
+  map<string, string> results = 2;
+}
+//SERVICES
+service UserManagerService {
+  rpc createUser(UserRequest) returns (OperationStatusResponse);
+}

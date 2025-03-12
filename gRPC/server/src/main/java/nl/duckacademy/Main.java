@@ -4,6 +4,7 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import nl.duckacademy.chatstream.ChatServiceImpl;
 import nl.duckacademy.helloworld.HelloServiceImpl;
+import nl.duckacademy.usermanager.UserManagerServiceImpl;
 import nl.duckacademy.usernotification.NotificationServiceImpl;
 import nl.duckacademy.userstream.UserStreamServiceImpl;
 
@@ -20,6 +21,7 @@ public class Main {
                 .addService(new ChatServiceImpl())
                 .addService(new NotificationServiceImpl())
                 .addService(new UserStreamServiceImpl())
+                .addService(new UserManagerServiceImpl())
                 .build();
 
         //server start

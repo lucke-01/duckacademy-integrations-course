@@ -18,6 +18,8 @@ import java.util.List;
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
+    private static final String NAMESPACE = "http://duckacademy.nl/springsoap/gen";
+
     //Filter for all /ws urls work with SOAP
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
@@ -33,7 +35,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("CountriesPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://duckacademy.nl/springsoap/gen");
+        wsdl11Definition.setTargetNamespace(NAMESPACE);
         wsdl11Definition.setSchema(countriesSchema);
         return wsdl11Definition;
     }

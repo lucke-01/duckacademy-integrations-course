@@ -4,6 +4,7 @@ import nl.duckacademy.wsclient.CountryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import org.springframework.ws.client.support.interceptor.ClientInterceptor;
 
 @Configuration
 public class CountryConfig {
@@ -23,6 +24,10 @@ public class CountryConfig {
         client.setDefaultUri("http://localhost:8080/ws");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
+        client.setInterceptors(new ClientInterceptor[]{
+                new AuthenticationClientInterceptor(),
+                new LoggingInterceptor()
+        });
         return client;
     }
 

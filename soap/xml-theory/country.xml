@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<getCountryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xmlns:countries="http://duckacademy.nl/country"
+                    xmlns:people="http://duckacademy.nl/people"
+                    xmlns="http://duckacademy.nl/country"
+                    xsi:schemaLocation="http://duckacademy.nl/country countries.xsd
+                          http://duckacademy.nl/people people.xsd">
+    <countries:country>
+        <countries:name>Spain</countries:name>
+        <countries:population>200</countries:population>
+        <countries:capital>Madrid</countries:capital>
+        <countries:currency>GBP</countries:currency>
+        <countries:president>
+            <people:name>adsf</people:name>
+            <people:lastName>asdf</people:lastName>
+        </countries:president>
+    </countries:country>
+</getCountryResponse>

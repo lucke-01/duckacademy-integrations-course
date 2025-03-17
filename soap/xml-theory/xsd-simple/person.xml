@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xmlns:people="http://duckacademy.nl/people"
+                    xmlns="http://duckacademy.nl/people"
+                    xsi:schemaLocation="http://duckacademy.nl/people people.xsd">
+    <people:name>Name</people:name>
+    <people:lastName>LastName</people:lastName>
+    <people:age>21</people:age>
+</person>

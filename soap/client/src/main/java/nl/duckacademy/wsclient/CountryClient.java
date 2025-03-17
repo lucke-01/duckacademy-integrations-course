@@ -23,7 +23,6 @@ public class CountryClient extends WebServiceGatewaySupport {
                 .marshalSendAndReceive("http://localhost:8080/ws/countries", request,
                         new SoapActionCallback(
                                 "http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
-
         return response;
     }
 

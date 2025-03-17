@@ -8,3 +8,19 @@
         </ns2:getCountryRequest>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+
+
+
+
+<?xml version = "1.0"?>
+<data xmlns:duck="http://duckacademy.nl/user"
+      xmlns:google="http://google.es/user">
+    <users>
+        <duck:user>
+            <name>Pepe</name>
+        </duck:user>
+        <google:user>
+            <fullName>Pepe Perez</fullName>
+        </google:user>
+    </users>
+</data>

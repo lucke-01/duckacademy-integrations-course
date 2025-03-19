@@ -1,0 +1,12 @@
+package nl.duckacademy.ejb;
+
+import jakarta.ejb.Stateless;
+import nl.duckacademy.common.ejb.HelloWorldEJBRemote;
+
+@Stateless
+public class HelloWorldEJBRemoteImpl implements HelloWorldEJBRemote {
+    public String helloWorld(String name) {
+        System.out.println("hello world");
+        return "hello, "+ name;
+    }
+}

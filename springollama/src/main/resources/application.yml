@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  ai:
+    ollama:
+      base-url: http://localhost:11434/  # Base URL where Ollama API server is running
+      chat:
+        options:
+          model: llama2  # The name of the supported model to use. Default is 'mistral'
+          temperature: 0.8  # The temperature of the model. Increasing the temperature will make the model answer more creatively.

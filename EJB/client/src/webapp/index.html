@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Testing</title>
+    </head>
+    <body>
+        Testing hello-world
+        <button onclick="testHello">Test</button>
+        <script type="text/javascript">
+            function testHello() {
+                fetch('http://localhost:8080/client/api/hello')
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+            }
+        </script>
+    </body>
+</html>

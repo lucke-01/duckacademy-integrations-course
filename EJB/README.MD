@@ -16,13 +16,22 @@ Invoke-WebRequest -Uri https://github.com/wildfly/wildfly/releases/download/35.0
 
 ### Start and configure server
 
-
+go to wildfly bin directory
+```cmd
+cd <wildfly_directory>/bin
 ```
-cd <wildfly_directory>
+
+Optional create admin user (.bat for windows .sh for linux)
+```cmd
+./add-user.[sh|bat] -u 'admin' -p 'admin'
 ```
 
+Execute server standalone (.bat for windows .sh for linux)
+```cmd
+./standalone.[sh|bat]
+```
 
-## Install and deploy server or client
+## Install and deploy server and client
 
 client
 ```cmd
@@ -32,11 +41,11 @@ mvn clean install wildfly:deploy
 
 Sever
 ```cmd
-cd client
+cd server
 mvn clean install wildfly:deploy
 ```
 
-## DOCUMENTATION
+## DOCUMENTATION and EXAMPLES
 
 ### EJB remote
 
@@ -44,3 +53,4 @@ https://github.com/wildfly/quickstart/tree/main/ejb-remote
 
 ### EJB MULTI-SERVER
 
+https://github.com/wildfly/quickstart/tree/main/ejb-multi-server

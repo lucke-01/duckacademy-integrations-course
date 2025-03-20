@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux;
 
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api")
 public class ChatController {
     Logger log = LoggerFactory.getLogger(ChatController.class);
     private final OllamaChatModel chatModel;
@@ -36,5 +36,10 @@ public class ChatController {
     public Flux<String> generateStreamResponse(@RequestParam(value = "message", defaultValue = "what is python") String message) {
         log.info("Sending prompt message:: {} to Llama2 model ", message);
         return llama2AiService.generateStreamResponse(message);
+    }
+    @GetMapping("/ai/rag")
+    public Flux<String> generateRag(@RequestParam(value = "message", defaultValue = "what is python") String message) {
+        log.info("Sending prompt message:: {} to Llama2 model ", message);
+        return llama2AiService.generateResponseRAG(message);
     }
 }

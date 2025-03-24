@@ -1,6 +1,7 @@
 package nl.duckacademy.springollama.controller;
 
 
+import nl.duckacademy.springollama.feignintegrator.Llama2ClientImpl;
 import nl.duckacademy.springollama.service.Llama2AiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,11 +19,12 @@ public class ChatController {
     Logger log = LoggerFactory.getLogger(ChatController.class);
     private final OllamaChatModel chatModel;
     private final Llama2AiService llama2AiService;
+    private final Llama2ClientImpl llama2ClientImpl;
 
-
-    public ChatController(OllamaChatModel chatModel, Llama2AiService llama2AiService) {
+    public ChatController(OllamaChatModel chatModel, Llama2AiService llama2AiService, Llama2ClientImpl llama2ClientImpl) {
         this.chatModel = chatModel;
         this.llama2AiService = llama2AiService;
+        this.llama2ClientImpl = llama2ClientImpl;
     }
 
     @GetMapping("/ai/generate")
@@ -30,7 +32,6 @@ public class ChatController {
         log.info("Sending prompt:: {} to Llama2 model ", prompt);
         return llama2AiService.generateResponse(prompt);
     }
-
 
     @GetMapping("/ai/generateStream")
     public Flux<String> generateStreamResponse(@RequestParam(value = "message", defaultValue = "what is python") String message) {
@@ -41,5 +42,10 @@ public class ChatController {
     public Flux<String> generateRag(@RequestParam(value = "message", defaultValue = "what is python") String message) {
         log.info("Sending prompt message:: {} to Llama2 model ", message);
         return llama2AiService.generateResponseRAG(message);
+    }
+    @GetMapping("/ai/generateREST")
+    public String generateResponseRest(@RequestParam(value = "prompt", defaultValue = "what is java") String prompt) {
+        log.info("Sending prompt:: {} to Llama2 model ", prompt);
+        return llama2ClientImpl.chatLlamaRest(prompt);
     }
 }

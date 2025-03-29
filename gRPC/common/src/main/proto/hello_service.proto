@@ -12,6 +12,13 @@ message HelloResponse {
   string greeting = 1;
 }
 
+message ErrorResponse {
+  string information = 1;
+}
+
 service HelloService {
   rpc hello(HelloRequest) returns (HelloResponse);
+}
+service HelloErrorService {
+  rpc helloWithException(HelloRequest) returns (HelloResponse);
 }

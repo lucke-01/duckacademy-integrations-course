@@ -2,11 +2,12 @@ package nl.duckacademy;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import nl.duckacademy.stream.chatstream.ChatServiceImpl;
+import nl.duckacademy.helloerror.HelloErrorServiceImpl;
 import nl.duckacademy.helloworld.HelloServiceImpl;
-import nl.duckacademy.usermanager.UserManagerServiceImpl;
+import nl.duckacademy.stream.chatstream.ChatServiceImpl;
 import nl.duckacademy.stream.usernotification.NotificationServiceImpl;
 import nl.duckacademy.stream.userstream.UserStreamServiceImpl;
+import nl.duckacademy.usermanager.UserManagerServiceImpl;
 
 import java.io.IOException;
 
@@ -22,6 +23,7 @@ public class Main {
                 .addService(new NotificationServiceImpl())
                 .addService(new UserStreamServiceImpl())
                 .addService(new UserManagerServiceImpl())
+                .addService(new HelloErrorServiceImpl())
                 .build();
 
         //server start

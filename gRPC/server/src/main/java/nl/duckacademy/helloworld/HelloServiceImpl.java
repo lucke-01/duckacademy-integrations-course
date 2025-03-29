@@ -1,7 +1,6 @@
 package nl.duckacademy.helloworld;
 
 
-
 import io.grpc.stub.StreamObserver;
 import nl.duckacademy.gRPC_server.grpc.HelloRequest;
 import nl.duckacademy.gRPC_server.grpc.HelloResponse;

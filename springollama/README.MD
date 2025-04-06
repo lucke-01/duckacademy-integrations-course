@@ -22,9 +22,16 @@ https://ollama.com/search
 ollama run tinyllama
 ```
 
+### showing llama models in local
+
+```
+ollama list
+```
+
 ## Calling API
 
 ```declarative
+POST http://localhost:11434/api/chat
 {
   "model": "llama2", #tinyllama
   "messages": [

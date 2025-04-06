@@ -12,7 +12,8 @@ import java.util.Iterator;
 public class SoapHeaderInterceptor extends EndpointInterceptorAdapter {
     @Override
     public boolean handleRequest(MessageContext messageContext, Object endpoint) throws Exception {
-        SOAPMessage soapMessage = ((org.springframework.ws.soap.saaj.SaajSoapMessage) messageContext.getRequest()).getSaajMessage();
+        SOAPMessage soapMessage = ((org.springframework.ws.soap.saaj.SaajSoapMessage)
+                messageContext.getRequest()).getSaajMessage();
         SOAPHeader header = soapMessage.getSOAPHeader();
 
         if (header == null) {

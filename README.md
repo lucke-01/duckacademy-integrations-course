@@ -8,6 +8,7 @@ Including:
 - SOAP
 - gRPC
 - EJB
+- REST using protobuff binary objects
 - Integration with Ollama LLM AI and Feign
 
 ## Rest
@@ -45,5 +46,5 @@ Project Documentation [REST with protoBuffer](springrestprotobuf/README.MD)
 
 ## Ollama LLM AI integration
 
-Project Documentation [springollama](EJB/README.MD)
+Project Documentation [springollama](springollama/README.MD)
 
